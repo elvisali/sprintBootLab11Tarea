@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	 <div th:if="${tipo == 'primos'}">
+	
+	<h1> NUMERO PRIMOS </h1>
+		 <table border="1">
+		 	<tr th:each="numero: ${arrPrimos}">
+		 	   <td th:text="${numero}" /> 
+			</tr>
+		 </table>
+	 </div>
+	 
+    <div th:if="${tipo == 'tMultiplicar'}">
+ 		<table border="1">
+ 			<tr>
+ 				<th  >Operacion</th>
+ 				<th>Resultado</th>
+ 				<th>Pares</th>
+ 			</tr> 
+		 	<tr th:each="numero, iter : ${arrResultado}">
+		 	 
+		 	   <td th:text="${iter.index}+'X'+${numero.numero}    " /> 
+		 	    <td th:text="${numero.resultado}" /> 
+		 	    <td> <input type="checkbox" th:checked="${numero.par} ? 'checked'"   >   </td>
+		 	   
+		 	     
+			</tr>
+		 </table>
+
+	</div>
+	 
+</body>
+</html>
